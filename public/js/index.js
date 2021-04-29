@@ -2,34 +2,25 @@ let transactions = [];
 let myChart;
 let subscription;
 const publicVapidKey ='BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I'
-// process.env.PRIVATE_KEY;
+
 if ("serviceWorker" in navigator) {
     testone().catch(error =>
         console.log("Service Worker registration failed:", error)
     );
 }
 
-// navigator.serviceWorker.ready.then(reg => reg.pushManager.subscribe({
-//     userVisibleOnly: true,
-//     applicationServerKey: urlBase64ToUnitArray(publicVapidKey)
-// })).then(subscription=>{
-//     console.log(subscription  + "sd")
-//     subscription=subscription
-// })
-
 async function testone() {
   const register= await navigator.serviceWorker.register('/service-worker.js', {
         scope: '/'
     })
-    console.log("service registered")
-await navigator.serviceWorker.ready;  // <---------- WAIT 
-  console.log("ready")
+
+await navigator.serviceWorker.ready;  
    subscription = await register.pushManager
         .subscribe({
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUnitArray(publicVapidKey)
         });
-        console.log("registered push")
+        
 }
 
 
