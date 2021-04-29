@@ -1,45 +1,59 @@
 let transactions = [];
 let myChart;
 let subscription;
-const publicVapidKey = 'BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I'
+const publicVapidKey ='BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I'
+// process.env.PRIVATE_KEY;
 if ("serviceWorker" in navigator) {
     testone().catch(error =>
         console.log("Service Worker registration failed:", error)
     );
 }
 
+// navigator.serviceWorker.ready.then(reg => reg.pushManager.subscribe({
+//     userVisibleOnly: true,
+//     applicationServerKey: urlBase64ToUnitArray(publicVapidKey)
+// })).then(subscription=>{
+//     console.log(subscription  + "sd")
+//     subscription=subscription
+// })
+
 async function testone() {
-    const register = await navigator.serviceWorker.register('./service-worker.js', {
+  const register= await navigator.serviceWorker.register('/service-worker.js', {
         scope: '/'
     })
-    subscription = await register.pushManager
+    console.log("service registered")
+await navigator.serviceWorker.ready;  // <---------- WAIT 
+  console.log("ready")
+   subscription = await register.pushManager
         .subscribe({
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUnitArray(publicVapidKey)
         });
+        console.log("registered push")
 }
 
-async function send(value) {
 
-    let obj
+async function send(value) {
+    let transactionInfo
     if (value > 0) {
-        obj = {
-            value: value,
-            transName: "deposit",
+      transactionInfo = {
+            amount: value,
+            transactionName: "deposit",
         }
     } else {
-        obj = {
-            value: value,
-            transName: "expense",
+      transactionInfo = {
+            amount: value,
+            transactionName: "expense",
 
         }
     }
    //Send push notification
+ 
     await fetch('/subscribe', {
         method: 'POST',
         body: JSON.stringify({
             subscription: subscription,
-            obj: obj
+            transactionInfo: transactionInfo
         }),
         headers: {
             'Content-type': 'application/json'
@@ -182,7 +196,7 @@ function sendTransaction(isAdding) {
             }
         })
         .then(response => {
-            send(transaction.value)
+             send(transaction.value)
             return response.json();
         })
         .then(data => {

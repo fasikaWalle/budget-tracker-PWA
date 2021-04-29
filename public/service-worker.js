@@ -9,6 +9,7 @@ const FILES_TO_CACHE = [
     "./js/index.js",
     "./css/styles.css"
   ];
+  
   self.addEventListener('install', function (e) {
     e.waitUntil(
       caches.open(CACHE_NAME).then(function (cache) {
@@ -26,7 +27,7 @@ const FILES_TO_CACHE = [
           return key.indexOf(APP_PREFIX);
         });
         cacheKeeplist.push(CACHE_NAME);
-  
+     
         return Promise.all(
           keyList.map(function(key, i) {
             if (cacheKeeplist.indexOf(key) === -1) {
@@ -35,6 +36,7 @@ const FILES_TO_CACHE = [
             }
           })
         );
+        
       })
     );
   });
@@ -59,12 +61,9 @@ const FILES_TO_CACHE = [
  
   self.addEventListener('push', e=> {
     const data=e.data.json();
-
-    console.log("push recived...")
   
-    // data=JSON.stringify(data)
     self.registration.showNotification(data.title.name,{
-      body:data.title.value,
+      body:data.title.amount,
       icon:'./icons/icon-72x72.png'
     })
     });

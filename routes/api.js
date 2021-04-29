@@ -4,12 +4,11 @@ const webpush=require('web-push');
 
 
 router.post('/subscribe', (req, res) => {
-  console.log(req.body.obj)
   const subscription = req.body.subscription;
 
   res.status(201).json({});
  
-  const payload = JSON.stringify({title:{value:req.body.obj.value,name:req.body.obj.transName}});
+  const payload = JSON.stringify({title:{amount:req.body.transactionInfo.amount,name:req.body.transactionInfo.transactionName}});
 
   console.log(subscription);
 
