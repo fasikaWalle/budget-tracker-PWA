@@ -1,7 +1,7 @@
 let transactions = [];
 let myChart;
 let subscription;
-const publicVapidKey =process.env.PUBLIC_KEY;
+const publicVapidKey ='BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I'
 
 if ("serviceWorker" in navigator) {
     testone().catch(error =>
