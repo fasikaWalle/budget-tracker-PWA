@@ -4,7 +4,7 @@ const VERSION = 'version_01';
 const CACHE_NAME = APP_PREFIX + VERSION;
 
 const FILES_TO_CACHE = [
-    "./index.html",
+    "/",
     "./js/idb.js",
     "./js/index.js",
     "./css/styles.css"
@@ -56,3 +56,18 @@ const FILES_TO_CACHE = [
     )
   })
   
+ 
+  self.addEventListener('push', e=> {
+    const data=e.data.json();
+
+    console.log("push recived...")
+  
+    // data=JSON.stringify(data)
+    self.registration.showNotification(data.title.name,{
+      body:data.title.value,
+      icon:'./icons/icon-72x72.png'
+    })
+    });
+ 
+
+ 

@@ -10,15 +10,28 @@ request.onupgradeneeded=function(event){
 request.onsuccess=function(event){
     db=event.target.result
     if(navigator.onLine){
-      saveRecord()
+        uploadTransaction()
     }
 }
+
 
 request.onerror = function(event) {
     console.log(event.target.errorCode);
   };
   
-  function saveRecord(){
+  function saveRecord(record) {
+    console.log(record)
+    const transaction = db.transaction(['new_transaction'], 'readwrite');
+  
+    const transitionObjectStore = transaction.objectStore('new_transaction');
+  
+    
+    transitionObjectStore.add(record);
+  }
+  
+  
+  async function uploadTransaction(){
+    console.log("bros")
     const transaction = db.transaction(['new_transaction'], 'readwrite');
 
     const transactionObjectStore = transaction.objectStore('new_transaction');
@@ -56,6 +69,7 @@ request.onerror = function(event) {
    };
  }
  
- window.addEventListener('online',saveRecord)
+
+ window.addEventListener('online',uploadTransaction)
   
   
