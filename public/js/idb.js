@@ -20,7 +20,6 @@ request.onerror = function(event) {
   };
   
   function saveRecord(record) {
-    console.log(record)
     const transaction = db.transaction(['new_transaction'], 'readwrite');
   
     const transitionObjectStore = transaction.objectStore('new_transaction');
