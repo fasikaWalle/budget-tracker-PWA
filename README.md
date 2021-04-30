@@ -28,7 +28,7 @@ This Licence belongs to MIT
 - The ability to enter deposits offline.
 - The ability to enter expenses offline.
 - Send notification when a transaction happen.
-- Offline entries should be added to the tracker when the application is brought back online.
+
 
 
 ## Questions
