@@ -17,7 +17,7 @@ This application uses a Progressive Web Application (PWA) to enable users to add
 ## Usage
 
 This project is deployed in heroku so you could go to the following link and test the application.
-[![heroku link](https://budget-tracker-new-app.herokuapp.com/)
+[heroku link](https://budget-tracker-new-app.herokuapp.com)
 
 
 ![budget-tracker](/public/gif/Budget-Tracker.gif)
@@ -35,5 +35,5 @@ This Licence belongs to MIT
 ## Questions
 If you have any question about the repo, open an issue or contact me directly at [fasikaWalle](https://github.com/fasikaWalle/)
 
-If you want to reach me for further questions please contact me through fasikabini12@gmail.com
+If you want to reach me for further questions please contact me through `fasikabini12@gmail.com`
     

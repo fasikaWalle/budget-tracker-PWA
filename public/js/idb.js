@@ -69,6 +69,9 @@ request.onerror = function(event) {
          
            successText.textContent = "All saved transaction has been saved!!";
            form.appendChild(successText);
+           setTimeout(()=>{
+             location.reload()
+           },3000)
          })
          .catch(err => {
            console.log(err);
