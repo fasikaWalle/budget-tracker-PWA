@@ -19,7 +19,7 @@ This application uses a Progressive Web Application (PWA) to enable users to add
 This project is deployed in heroku so you could go to the following link and test the application.
 - ```https://budget-tracker-new-app.herokuapp.com/ ```
 
-![](/public/gif/Budget-Tracker.gif)
+![](/public/gif/budget-tracker.gif)
  ## Licence
 This Licence belongs to MIT 
  
