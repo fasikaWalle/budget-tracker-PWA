@@ -2,6 +2,8 @@
 let db;
 const request=indexedDB.open('budgt_tracker',1)
 
+
+
 request.onupgradeneeded=function(event){
     const db=event.target.result;
     db.createObjectStore('new_transaction',{autoIncrement:true})
@@ -28,8 +30,14 @@ request.onerror = function(event) {
     transitionObjectStore.add(record);
   }
   
+  let successText = document.createElement("div");
+
   
   async function uploadTransaction(){
+    successText.className = "alert alert-success";
+    successText.textContent="";
+    let form = document.querySelector(".form");
+    
     const transaction = db.transaction(['new_transaction'], 'readwrite');
 
     const transactionObjectStore = transaction.objectStore('new_transaction');
@@ -58,7 +66,9 @@ request.onerror = function(event) {
           
            transactionObjectStore.clear();
  
-           alert('All saved transaction has been saved!!');
+         
+           successText.textContent = "All saved transaction has been saved!!";
+           form.appendChild(successText);
          })
          .catch(err => {
            console.log(err);
