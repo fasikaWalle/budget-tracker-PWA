@@ -17,6 +17,10 @@ This application uses a Progressive Web Application (PWA) to enable users to add
 ## Usage
 
 This project is deployed in heroku so you could go to the following link and test the application.
+<<<<<<< HEAD
+=======
+- ```https://budget-tracker-new-app.herokuapp.com/ ```
+>>>>>>> 79608f4816d412c45ff1464b3ef0563fe5e50352
 
 ![](/public/gif/Budget-Tracker.gif)
  ## Licence
@@ -27,7 +31,7 @@ This Licence belongs to MIT
 - The ability to enter deposits offline.
 - The ability to enter expenses offline.
 - Send notification when a transaction happen.
-- Offline entries should be added to the tracker when the application is brought back online.
+
 
 
 ## Questions
