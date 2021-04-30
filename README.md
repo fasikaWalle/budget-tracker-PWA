@@ -17,7 +17,7 @@ This application uses a Progressive Web Application (PWA) to enable users to add
 ## Usage
 
 This project is deployed in heroku so you could go to the following link and test the application.
-[![heroku link](https://budget-tracker-new-app.herokuapp.com/)
+[heroku link](https://budget-tracker-new-app.herokuapp.com)
 
 
 ![budget-tracker](/public/gif/Budget-Tracker.gif)
