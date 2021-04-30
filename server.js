@@ -11,8 +11,8 @@ const app = express();
 const webpush=require('web-push');
 app.use(require('body-parser').json());
 
-const publicVapidKey= process.env.PUBLIC_KEY;
-const privateVapidKey=process.env.PRIVATE_KEY;
+const publicVapidKey='BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I';
+const privateVapidKey=process.env.PRIVATE_KEY  ;
 webpush.setVapidDetails('mailto:val@karpov.io', publicVapidKey, privateVapidKey);
 
 

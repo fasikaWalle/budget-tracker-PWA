@@ -17,7 +17,7 @@ This application uses a Progressive Web Application (PWA) to enable users to add
 ## Usage
 nothing    
 This project is deployed in heroku so 
-![project image](../Assets/images/f)
+
 
 
 
