@@ -31,7 +31,6 @@ request.onerror = function(event) {
   
   
   async function uploadTransaction(){
-    console.log("bros")
     const transaction = db.transaction(['new_transaction'], 'readwrite');
 
     const transactionObjectStore = transaction.objectStore('new_transaction');
