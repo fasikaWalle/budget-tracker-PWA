@@ -12,7 +12,7 @@ const webpush=require('web-push');
 app.use(require('body-parser').json());
 
 const publicVapidKey='BIuAfUWTEuGR2EVFpq-ewJ4DZTve4VzPanG-annHUgdwMH3CAkb2X5H0ka96HbqaESJ2erYZegRTb8bQHZuC34I';
-const privateVapidKey=process.env.PRIVATE_KEY ||'duevH6FWvoBSm1kZiLl9jZGTJ4jpmRXbBNuBz0XyrJw' ;
+const privateVapidKey=process.env.PRIVATE_KEY;
 webpush.setVapidDetails('mailto:val@karpov.io', publicVapidKey, privateVapidKey);
 
 
